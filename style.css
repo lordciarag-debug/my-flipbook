@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Georgia', serif;
+}
+
+.book-container {
+    perspective: 2000px;
+}
+
+.book {
+    position: relative;
+    width: 400px;  /* Adjust width to match your newspaper aspect ratio */
+    height: 565px; /* Adjust height to match your newspaper aspect ratio */
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 5px 0 20px rgba(0,0,0,0.15), 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 2px;
+    backface-visibility: hidden;
+}
+
+.page.flipped {
+    transform: rotateY(-180deg);
+}
+
+.controls {
+    margin-top: 25px;
+}
+
+.controls button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.controls button:hover {
+    background-color: #555;
+}
